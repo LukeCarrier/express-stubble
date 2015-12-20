@@ -1,0 +1,28 @@
+{
+  "name": "express-stubble",
+  "version": "0.1.0",
+  "description": "Stubble for Express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LukeCarrier/express-stubble.git"
+  },
+  "keywords": [
+    "express",
+    "handlebars"
+  ],
+  "authors": [
+    {
+      "name": "Luke Carrier",
+      "email": "luke@carrier.im"
+    }
+  ],
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/LukeCarrier/express-stubble/issues"
+  },
+  "homepage": "https://github.com/LukeCarrier/express-stubble#readme"
+}
