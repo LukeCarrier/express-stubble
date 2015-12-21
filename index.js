@@ -1,23 +1,23 @@
-var fs = require('fs');
-var merge = require('merge');
+const fs = require('fs');
+const merge = require('merge');
 
-var DEFAULTS = {
+const DEFAULTS = {
   handlebars: undefined,
-  encoding: 'utf8'
+  encoding: 'utf8',
 };
 
 function ExpressStubble(options) {
-  options = merge(DEFAULTS, options);
+  const mergedOptions = merge(DEFAULTS, options);
   this.engine = this.render.bind(this);
 
-  this.handlebars = options.handlebars;
-  delete options.handlebars;
+  this.handlebars = mergedOptions.handlebars;
+  delete mergedOptions.handlebars;
 
-  this.options = options;
+  this.options = mergedOptions;
 }
 
-ExpressStubble.prototype.withTemplate = function(filePath, callback) {
-  fs.readFile(filePath, this.options.encoding, function(err, content) {
+ExpressStubble.prototype.withTemplate = function withTemplate(filePath, callback) {
+  fs.readFile(filePath, this.options.encoding, function onComplete(err, content) {
     if (err) {
       throw new Error(err);
     }
@@ -26,15 +26,15 @@ ExpressStubble.prototype.withTemplate = function(filePath, callback) {
   }.bind(this));
 };
 
-ExpressStubble.prototype.render = function(filePath, options, callback) {
-  this.withTemplate.apply(this, [filePath, function(template) {
-    var rendered = template(options);
+ExpressStubble.prototype.render = function render(filePath, options, callback) {
+  this.withTemplate.apply(this, [filePath, function renderTemplate(template) {
+    const rendered = template(options);
     callback(null, rendered);
   }]);
 };
 
-module.exports = function(options) {
-  var instance = new ExpressStubble(options);
+module.exports = function stubble(options) {
+  const instance = new ExpressStubble(options);
 
   return instance.render.bind(instance);
 };
