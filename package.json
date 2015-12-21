@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/LukeCarrier/express-stubble/issues"
   },
-  "homepage": "https://github.com/LukeCarrier/express-stubble#readme"
+  "homepage": "https://github.com/LukeCarrier/express-stubble#readme",
+  "dependencies": {
+    "merge": "^1.2.0"
+  }
 }
